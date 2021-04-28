@@ -1,0 +1,40 @@
+{
+    "publisher": "BattleIsOver",
+    "name": "ijvm-language-support",
+    "displayName": "ijvm_language_support",
+    "description": "Adds support for ijvm",
+    "version": "0.0.2",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+      "languages": [
+        {
+          "id": "ijvm",
+          "aliases": [
+            "ijvm"
+          ],
+          "extensions": [
+            ".jas"
+          ],
+          "configuration": "./language-configuration.json"
+        }
+      ],
+      "grammars": [
+        {
+          "language": "ijvm",
+          "scopeName": "source.ijvm",
+          "path": "./syntaxes/ijvm.tmLanguage.json"
+        }
+      ],
+      "snippets": [
+        {
+          "language": "ijvm",
+          "path": "./snippets/snippets.code-snippets"
+        }
+      ]
+    }
+}

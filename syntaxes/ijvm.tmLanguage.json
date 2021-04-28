@@ -1,0 +1,75 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.ijvm",
+	"name": "ijvm",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+    {
+			"include": "#afterKeywords"
+		},
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#methods"
+    },
+    {
+      "include": "#sections"
+    },
+    {
+      "include": "#jump"
+    }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+        "name": "constant.language.ijvm",
+				"match": "\\b(?i:(bipush|dup|err|goto|halt|iadd|iand|ifeq|iflt|if_icmpeq|iinc|iload|in|invokevirtual|ior|ireturn|istore|isub|ldc_w|nop|out|pop|swap|wide))\\b"
+			}
+    ]
+		},
+    "comments": {
+			"patterns": [{
+        "name": "comment.line.double-dash.ijvm",
+        "begin":"//",
+        "end":"\\n"
+			}]
+		},
+    "afterKeywords": {
+			"patterns": [{
+        "name": "variable.parameter.ijvm",
+        "match": "(?<=(?i:(goto|ifeq|iflt|if_icmpeq|invokevirtual)))(\\s*\\S+)"
+			}]
+		},
+    "methods": {
+			"patterns": [
+        {
+        "name": "storage.type.function.ijvm",
+        "begin":"(?i:(\\.method|end-method))",
+        "end":"\\s"
+			},
+        {
+          "name": "entity.name.function.ijvm",
+          "begin":"(?<=(?i:(\\.method))(\\s*\\S+))",
+          "end":"()\\n"
+      }
+      ]
+		},
+    "sections": {
+			"patterns": [{
+        "name": "markup.heading.ijvm",
+        "begin":"(?i:(\\.(var|end-var|constant|end-constant)))",
+        "end":"\\n"
+			}]
+		},
+    "jump": {
+			"patterns": [{
+        "name": "entity.name.function.ijvm",
+        "begin":"(?i:((\\S)+\\:))",
+        "end":"\\n"
+			}]
+		}
+	}
+}
